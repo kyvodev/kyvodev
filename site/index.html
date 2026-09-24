@@ -115,8 +115,26 @@
           <p class="eyebrow">Portfólio</p>
           <h2 class="reveal">Projetos <em>no ar.</em></h2>
         </div>
-        <p class="portfolio__lead reveal">Alguns sites que a Kyvo construiu. Passe o mouse para percorrer a página — ou clique para visitar.</p>
+        <p class="portfolio__lead reveal">Sistemas e sites que a Kyvo construiu. Nos sites, passe o mouse para percorrer a página — ou clique para visitar.</p>
       </div>
+      <button type="button" class="work work--feature reveal" data-case="case-pulso" aria-haspopup="dialog" style="--tint:#15704f">
+        <div class="work__stage">
+          <div class="browser">
+            <div class="browser__bar"><i></i><i></i><i></i><span>Grupo Pulso · Plataforma de Gestão</span></div>
+            <div class="browser__screen"><img src="assets/img/portfolio/pulso-desktop.webp" alt="Painel do sistema Grupo Pulso, com os dados borrados" loading="lazy" decoding="async"></div>
+          </div>
+        </div>
+        <div class="work__meta">
+          <span class="work__n">00</span>
+          <div class="work__text">
+            <p class="work__cat">Sistema web sob medida</p>
+            <h3>Grupo Pulso · O&nbsp;Estafeta</h3>
+            <p class="work__desc">Plataforma de gestão do grupo e do jornal O Estafeta: contratos, edições, assinaturas, rotas de entrega e financeiro num lugar só.</p>
+            <span class="work__more">Ver o projeto <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </div>
+        </div>
+      </button>
+
       <div class="works">
         <a class="work reveal" href="https://www.amandamiss.com.br/" target="_blank" rel="noopener" style="--tint:#C9A227">
           <div class="work__stage">
@@ -377,6 +395,86 @@
     <p class="footer__copy">© <span id="ano">2026</span> Kyvo</p>
   </div>
 </footer>
+
+<dialog class="case" id="case-pulso" aria-labelledby="case-pulso-title">
+  <div class="case__panel" style="--tint:#15704f">
+    <button type="button" class="case__close" data-close aria-label="Fechar">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+
+    <header class="case__head">
+      <p class="eyebrow">Sistema web sob medida</p>
+      <h2 id="case-pulso-title">Grupo Pulso · O&nbsp;Estafeta</h2>
+      <p class="case__lead">A plataforma de gestão do Grupo Pulso, que reúne as empresas do grupo e o jornal O&nbsp;Estafeta. Do contrato de anúncio à entrega do jornal na casa do assinante, tudo acontece num lugar só.</p>
+      <dl class="case__facts">
+        <div><dt>Cliente</dt><dd>Grupo Pulso</dd></div>
+        <div><dt>Tipo</dt><dd>Sistema web interno</dd></div>
+        <div><dt>Acesso</dt><dd>Login com permissões por módulo</dd></div>
+        <div><dt>Tecnologia</dt><dd>Next.js · React · Supabase</dd></div>
+      </dl>
+    </header>
+
+    <figure class="case__hero">
+      <div class="browser">
+        <div class="browser__bar"><i></i><i></i><i></i><span>Grupo Pulso · Plataforma de Gestão</span></div>
+        <div class="case__shot"><img src="assets/img/portfolio/pulso-desktop.webp" alt="Painel geral do sistema, com indicadores do mês e metas por empresa" loading="lazy" decoding="async"></div>
+      </div>
+      <figcaption>Painel geral: indicadores do mês, metas e visão por empresa.</figcaption>
+    </figure>
+
+    <section class="case__block">
+      <h3>O que o sistema faz</h3>
+      <div class="case__mods">
+        <article>
+          <span>01</span>
+          <h4>Comercial</h4>
+          <p>Clientes, produtos e contratos com renovação e recibo. Prospecção com listas e acompanhamento por vendedor.</p>
+        </article>
+        <article>
+          <span>02</span>
+          <h4>Jornal</h4>
+          <p>Cada edição do O&nbsp;Estafeta com as vendas de publicidade, o espelho das páginas e o relatório da edição.</p>
+        </article>
+        <article>
+          <span>03</span>
+          <h4>Assinaturas e entregas</h4>
+          <p>Assinantes organizados em rotas, cada uma com seu entregador, e a lista da rota pronta para imprimir.</p>
+        </article>
+        <article>
+          <span>04</span>
+          <h4>Financeiro</h4>
+          <p>Contas a pagar e a receber, recebimentos, fluxo de caixa, notas fiscais, centros de custo e sócios.</p>
+        </article>
+        <article>
+          <span>05</span>
+          <h4>Equipe e metas</h4>
+          <p>Comissões dos vendedores, metas mensais e anuais por empresa e um painel individual para cada pessoa.</p>
+        </article>
+        <article>
+          <span>06</span>
+          <h4>Várias empresas, um sistema</h4>
+          <p>Visão consolidada ou por empresa, permissões por módulo e auditoria de quem fez o quê.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="case__block">
+      <h3>Algumas telas</h3>
+      <div class="case__gallery">
+        <figure><img src="assets/img/portfolio/pulso-rotas.webp" alt="Tela de rotas e entregas" loading="lazy" decoding="async"><figcaption>Rotas e entregas</figcaption></figure>
+        <figure><img src="assets/img/portfolio/pulso-edicoes.webp" alt="Tela de edições e publicidade" loading="lazy" decoding="async"><figcaption>Edições e publicidade</figcaption></figure>
+        <figure><img src="assets/img/portfolio/pulso-assinaturas.webp" alt="Tela de assinaturas" loading="lazy" decoding="async"><figcaption>Assinaturas</figcaption></figure>
+        <figure><img src="assets/img/portfolio/pulso-financeiro.webp" alt="Tela do financeiro" loading="lazy" decoding="async"><figcaption>Financeiro</figcaption></figure>
+      </div>
+      <p class="case__note">Sistema interno, com acesso restrito. Nomes e valores foram borrados para preservar os dados do cliente.</p>
+    </section>
+
+    <footer class="case__cta">
+      <p>Precisa de um sistema do jeito da sua empresa?</p>
+      <a href="#contato" class="btn" data-close>Quero um sistema assim</a>
+    </footer>
+  </div>
+</dialog>
 
 <div class="cursor" aria-hidden="true">Visitar ↗</div>
 

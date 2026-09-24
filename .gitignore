@@ -4,3 +4,6 @@ Kyvo-*.png
 kyvo-logo-*.png
 Slide*.png
 .claude/
+
+# Prints originais do sistema (com dados reais)
+prints-estafeta/
