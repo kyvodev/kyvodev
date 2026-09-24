@@ -290,6 +290,7 @@ code { font-family: var(--mono); font-size: .88em; color: var(--accent); }
 .work { grid-column: span 6; display: flex; flex-direction: column; gap: 1.2rem; text-decoration: none; color: #fff; }
 .work:nth-child(4n+1), .work:nth-child(4n+4) { grid-column: span 7; }
 .work:nth-child(4n+2), .work:nth-child(4n+3) { grid-column: span 5; }
+.work:last-child:nth-child(odd) { grid-column: span 12; }
 
 .work__stage {
   --tint-soft: color-mix(in srgb, var(--tint) 45%, transparent);
@@ -406,7 +407,7 @@ code { font-family: var(--mono); font-size: .88em; color: var(--accent); }
   .code { font-size: .72rem; }
   .cards { grid-template-columns: 1fr; }
   .works { grid-template-columns: 1fr; }
-  .work, .work:nth-child(n) { grid-column: auto; }
+  .work, .work:nth-child(n), .work:last-child:nth-child(odd) { grid-column: auto; }
   .work__stage { height: clamp(260px, 62vw, 460px); }
   .steps { grid-template-columns: 1fr 1fr; row-gap: 2.4rem; }
   .concept__box { max-width: 340px; }
