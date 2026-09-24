@@ -18,11 +18,11 @@
   var ORIGEM = 'https://kyvo.dev.br/';
 
   var CSS = [
-    ':host{display:flex;justify-content:center;margin:12px 0;font-size:13px;line-height:1;-webkit-font-smoothing:antialiased}',
+    ':host{display:flex;justify-content:center;margin:14px 0;font-size:15px;line-height:1;-webkit-font-smoothing:antialiased}',
     ':host([data-alinhar="esquerda"]){justify-content:flex-start}',
     ':host([data-alinhar="direita"]){justify-content:flex-end}',
     'a{--txt:#0B1B33;--mute:rgba(11,27,51,.62);--line:#2454FF;--line-h:#0B1B33;--nome:#2454FF;--stem:#0B1B33;--brilho:rgba(36,84,255,.22);',
-    'position:relative;overflow:hidden;isolation:isolate;display:inline-flex;align-items:center;gap:8px;height:36px;padding:0 15px 0 12px;border-radius:999px;border:1px solid var(--line);',
+    'position:relative;overflow:hidden;isolation:isolate;display:inline-flex;align-items:center;gap:10px;height:44px;padding:0 19px 0 15px;border-radius:999px;border:1px solid var(--line);',
     'color:var(--txt);text-decoration:none;white-space:nowrap;font:inherit;font-family:inherit;letter-spacing:normal;background:transparent;',
     'transition:border-color .3s,background-color .3s}',
     'a.escuro{--txt:#F4F6FB;--mute:rgba(244,246,251,.66);--line:#2454FF;--line-h:#8BA5FF;--nome:#8BA5FF;--stem:#F4F6FB;--brilho:rgba(139,165,255,.45)}',
@@ -33,14 +33,14 @@
     '@keyframes brilho{0%{transform:translateX(-160%) skewX(-20deg)}30%,100%{transform:translateX(360%) skewX(-20deg)}}',
     'a:hover,a:focus-visible{border-color:var(--line-h)}',
     'a:focus-visible{outline:2px solid #2454FF;outline-offset:3px}',
-    'svg{width:16px;height:16px;flex:none;overflow:visible}',
+    'svg{width:20px;height:20px;flex:none;overflow:visible}',
     'rect{fill:var(--stem)}',
     'polyline{fill:none;stroke:#2454FF;stroke-width:14;stroke-linecap:round;stroke-linejoin:round;transform-origin:59px 50px;',
     'transition:transform .45s cubic-bezier(.2,.7,.2,1)}',
     'a:hover polyline,a:focus-visible polyline,a.aberto polyline{transform:rotate(180deg) translateX(-14px)}',
     '.tx{display:inline-flex;align-items:baseline}',
     '.gancho{display:inline-block;max-width:0;overflow:hidden;white-space:pre;line-height:1.2;vertical-align:baseline;color:var(--mute);transition:max-width .7s cubic-bezier(.2,.7,.2,1)}',
-    'a.aberto .gancho,a:hover .gancho,a:focus-visible .gancho{max-width:170px}',
+    'a.aberto .gancho,a:hover .gancho,a:focus-visible .gancho{max-width:200px}',
     'b{font-weight:600;color:var(--nome)}',
     '@media (prefers-reduced-motion:reduce){polyline,.gancho{transition:none}a::after{animation:none;display:none}}',
     '@media print{:host{display:none}}'
