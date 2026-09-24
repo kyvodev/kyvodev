@@ -10,6 +10,8 @@
  * Opções (no <script> ou no <kyvo-selo>):
  *   data-tema="escuro" | "claro"   força as cores (padrão: detecta pelo fundo do rodapé)
  *   data-alinhar="centro" | "esquerda" | "direita"   (padrão: centro)
+ *
+ * Fora de um <footer>, o selo vira uma faixa própria, com espaço em cima e embaixo.
  */
 (function () {
   if (window.customElements && customElements.get('kyvo-selo')) return;
@@ -18,9 +20,11 @@
   var ORIGEM = 'https://kyvo.dev.br/';
 
   var CSS = [
-    ':host{display:flex;justify-content:center;margin:14px 0;font-size:15px;line-height:1;-webkit-font-smoothing:antialiased}',
-    ':host([data-alinhar="esquerda"]){justify-content:flex-start}',
-    ':host([data-alinhar="direita"]){justify-content:flex-end}',
+    ':host{display:block;font-size:15px;line-height:1;-webkit-font-smoothing:antialiased}',
+    '.caixa{display:flex;justify-content:center;padding:14px 0}',
+    ':host([data-faixa]) .caixa{padding:32px 16px 40px}',
+    ':host([data-alinhar="esquerda"]) .caixa{justify-content:flex-start}',
+    ':host([data-alinhar="direita"]) .caixa{justify-content:flex-end}',
     'a{--txt:#0B1B33;--mute:rgba(11,27,51,.62);--line:#2454FF;--line-h:#0B1B33;--nome:#2454FF;--stem:#0B1B33;--brilho:rgba(36,84,255,.22);',
     'position:relative;overflow:hidden;isolation:isolate;display:inline-flex;align-items:center;gap:10px;height:44px;padding:0 19px 0 15px;border-radius:999px;border:1px solid var(--line);',
     'color:var(--txt);text-decoration:none;white-space:nowrap;font:inherit;font-family:inherit;letter-spacing:normal;background:transparent;',
@@ -76,10 +80,12 @@
 
   function montar() {
     if (this.shadowRoot) return;
+    // Fora de um rodapé (ex.: script carregado no fim da página), vira uma faixa com respiro
+    if (!this.closest('footer') && !this.hasAttribute('data-faixa')) this.setAttribute('data-faixa', '');
     var root = this.attachShadow({ mode: 'open' });
-    root.innerHTML = '<style>' + CSS + '</style>' +
+    root.innerHTML = '<style>' + CSS + '</style><div class="caixa">' +
       '<a href="' + link() + '"' + (CASA ? '' : ' target="_blank" rel="noopener"') + ' aria-label="Site desenvolvido pela Kyvo. Conheça a Kyvo">' +
-      K + '<span class="tx" aria-hidden="true"><span class="gancho">Gostou do site?&nbsp;</span><span>Conheça a <b>Kyvo</b></span></span></a>';
+      K + '<span class="tx" aria-hidden="true"><span class="gancho">Gostou do site?&nbsp;</span><span>Conheça a <b>Kyvo</b></span></span></a></div>';
 
     var a = root.querySelector('a');
     var tema = this.getAttribute('data-tema');
