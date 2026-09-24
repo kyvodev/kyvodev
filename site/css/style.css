@@ -210,11 +210,7 @@ code { font-family: var(--mono); font-size: .88em; color: var(--accent); }
 .concept__grid { position: absolute; top: 16px; left: 18px; font-family: var(--mono); font-size: .72rem; color: var(--ink-soft); background: var(--bg); padding: 0 .3em; }
 .concept__k { width: 100%; height: 100%; }
 .concept figcaption { font-family: var(--mono); font-size: .8rem; color: var(--ink-soft); margin-top: 1rem; }
-#sobre p:not(.eyebrow):not(.signature) { color: var(--ink-soft); max-width: 52ch; }
-.signature {
-  margin-top: 2rem; padding-top: 1.4rem; border-top: 1px solid var(--line);
-  font-family: var(--mono); font-size: .92rem; color: var(--ink);
-}
+#sobre p:not(.eyebrow) { color: var(--ink-soft); max-width: 52ch; }
 
 /* Contato */
 .contact { position: relative; overflow: hidden; --chev: var(--accent); }
