@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Teste do selo Kyvo</title>
+  <script src="../selo.js" async></script>
+  <style>
+    body { margin: 0; font-family: Georgia, serif; }
+    .conteudo { height: 110vh; display: grid; place-items: center; background: #fafafa; color: #555; }
+    footer { padding: 28px 16px; text-align: center; font-size: 14px; }
+    footer p { margin: 0 0 6px; }
+    .escuro { background: #0B1B33; color: #cbd3e6; }
+    .creme { background: #F4F1EC; color: #6b5a45; }
+    .verde { background: #15704f; color: #e6f2ec; }
+    .branco { background: #fff; color: #333; border-top: 1px solid #eee; }
+    .foto { background: url(../assets/img/og.png) center / cover; color: #fff; }
+  </style>
+</head>
+<body>
+  <div class="conteudo">role até o fim para ver o selo puxar conversa</div>
+  <footer class="escuro"><p>Rodapé escuro · © Cliente</p><kyvo-selo></kyvo-selo></footer>
+  <footer class="creme"><p>Rodapé creme · © Cliente</p><kyvo-selo></kyvo-selo></footer>
+  <footer class="verde"><p>Rodapé colorido · © Cliente</p><kyvo-selo></kyvo-selo></footer>
+  <footer class="foto"><p>Rodapé com foto (tema forçado) · © Cliente</p><kyvo-selo data-tema="escuro"></kyvo-selo></footer>
+  <footer class="branco"><p>Rodapé branco · © Cliente</p><kyvo-selo></kyvo-selo></footer>
+</body>
+</html>
