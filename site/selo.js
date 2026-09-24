@@ -61,7 +61,11 @@
     return false;
   }
 
+  // No próprio site da Kyvo o selo leva ao topo, sem abrir outra aba
+  var CASA = /(^|\.)kyvo\.dev\.br$/.test(location.hostname);
+
   function link() {
+    if (CASA) return '#topo';
     var host = location.hostname.replace(/^www\./, '') || 'site';
     return ORIGEM + '?utm_source=' + encodeURIComponent(host) + '&utm_medium=selo&utm_campaign=rodape';
   }
@@ -74,7 +78,7 @@
     if (this.shadowRoot) return;
     var root = this.attachShadow({ mode: 'open' });
     root.innerHTML = '<style>' + CSS + '</style>' +
-      '<a href="' + link() + '" target="_blank" rel="noopener" aria-label="Site desenvolvido pela Kyvo. Conheça a Kyvo">' +
+      '<a href="' + link() + '"' + (CASA ? '' : ' target="_blank" rel="noopener"') + ' aria-label="Site desenvolvido pela Kyvo. Conheça a Kyvo">' +
       K + '<span class="tx" aria-hidden="true"><span class="gancho">Gostou do site?&nbsp;</span><span>Conheça a <b>Kyvo</b></span></span></a>';
 
     var a = root.querySelector('a');
