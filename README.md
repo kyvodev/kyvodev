@@ -1,6 +1,10 @@
 # Kyvo Soluções Digitais — site
 
-Site estático (HTML + CSS + JS puro, sem build). A pasta publicada é `site/`.
+Site estático (HTML + CSS + JS puro, sem build), publicado na Cloudflare Pages a partir da pasta `site/`.
+
+- No ar: https://kyvo.dev.br
+- Repositório: https://github.com/kyvodev/kyvodev
+- Cada push na branch `main` publica automaticamente.
 
 ## Rodar localmente
 
