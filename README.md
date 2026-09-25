@@ -42,7 +42,7 @@ As capturas foram feitas com Playwright usando o Chrome instalado. Para adiciona
 
 Para escolher o lugar exato (ou usar em mais de um ponto), coloque `<kyvo-selo></kyvo-selo>` e carregue o script em qualquer lugar da página.
 
-- **Cores:** detecta se o fundo do rodapé é claro ou escuro. Com foto ou gradiente de fundo, force com `data-tema="escuro"` ou `data-tema="claro"`.
+- **Cores:** detecta o fundo do rodapé: claro, escuro ou colorido (laranja, verde…, fica branco com o colchete do K em azul-marinho). Com foto ou gradiente de fundo, force com `data-tema="escuro"`, `"claro"` ou `"cor"`.
 - **Posição:** `data-alinhar="esquerda"`, `"centro"` (padrão) ou `"direita"`.
 - **Fora do `<footer>`:** quando o script é carregado no fim da página (caso de sites em Next.js com `next/script`), o selo vira uma faixa própria com espaço em cima e embaixo. Para ele ficar dentro do rodapé, coloque `<kyvo-selo></kyvo-selo>` no componente do rodapé.
 - **Comportamento:** quando o rodapé aparece na tela, o selo se abre uma vez com "Gostou do site?" e o K vira seta. Um brilho passa pela borda enquanto ele está visível. Respeita quem desativou animações no sistema.
