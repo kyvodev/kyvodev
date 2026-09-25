@@ -8,7 +8,8 @@
  *   <kyvo-selo></kyvo-selo>
  *
  * Opções (no <script> ou no <kyvo-selo>):
- *   data-tema="escuro" | "claro"   força as cores (padrão: detecta pelo fundo do rodapé)
+ *   data-tema="escuro" | "claro" | "cor"   força as cores (padrão: detecta pelo fundo do rodapé;
+ *                                            "cor" é para fundos coloridos, como laranja ou verde)
  *   data-alinhar="centro" | "esquerda" | "direita"   (padrão: centro)
  *
  * Fora de um <footer>, o selo vira uma faixa própria, com espaço em cima e embaixo.
@@ -29,6 +30,7 @@
     'position:relative;overflow:hidden;isolation:isolate;display:inline-flex;align-items:center;gap:10px;height:44px;padding:0 19px 0 15px;border-radius:999px;border:1px solid var(--line);',
     'color:var(--txt);text-decoration:none;white-space:nowrap;font:inherit;font-family:inherit;letter-spacing:normal;background:transparent;',
     'transition:border-color .3s,background-color .3s}',
+    'a.cor{--txt:#fff;--mute:rgba(255,255,255,.82);--line:rgba(255,255,255,.7);--line-h:#fff;--nome:#fff;--stem:#fff;--chev:#0B1B33;--brilho:rgba(255,255,255,.35)}',
     'a.escuro{--txt:#F4F6FB;--mute:rgba(244,246,251,.66);--line:#2454FF;--line-h:#8BA5FF;--nome:#8BA5FF;--stem:#F4F6FB;--brilho:rgba(139,165,255,.45)}',
     'a::after{content:"";position:absolute;z-index:-1;top:0;bottom:0;left:0;width:40%;pointer-events:none;',
     'background:linear-gradient(90deg,transparent,var(--brilho),transparent);transform:translateX(-160%) skewX(-20deg);',
@@ -39,7 +41,7 @@
     'a:focus-visible{outline:2px solid #2454FF;outline-offset:3px}',
     'svg{width:20px;height:20px;flex:none;overflow:visible}',
     'rect{fill:var(--stem)}',
-    'polyline{fill:none;stroke:#2454FF;stroke-width:14;stroke-linecap:round;stroke-linejoin:round;transform-origin:59px 50px;',
+    'polyline{fill:none;stroke:var(--chev,#2454FF);stroke-width:14;stroke-linecap:round;stroke-linejoin:round;transform-origin:59px 50px;',
     'transition:transform .45s cubic-bezier(.2,.7,.2,1)}',
     'a:hover polyline,a:focus-visible polyline,a.aberto polyline{transform:rotate(180deg) translateX(-14px)}',
     '.tx{display:inline-flex;align-items:baseline}',
@@ -53,16 +55,20 @@
   var K = '<svg viewBox="0 0 100 100" aria-hidden="true" focusable="false">' +
     '<rect x="18" y="12" width="14" height="76" rx="3"/><polyline points="80,15 39,50 80,85"/></svg>';
 
-  // Descobre se o fundo atrás do selo é escuro, subindo até achar uma cor opaca
-  function fundoEscuro(el) {
+  // Escolhe o tema pelo fundo atrás do selo, subindo até achar uma cor opaca
+  function temaDoFundo(el) {
     for (var n = el; n && n.nodeType === 1; n = n.parentElement || (n.getRootNode && n.getRootNode().host)) {
       var m = getComputedStyle(n).backgroundColor.match(/[\d.]+/g);
       if (m && (m.length < 4 || +m[3] > 0.5)) {
-        var lum = (0.2126 * m[0] + 0.7152 * m[1] + 0.0722 * m[2]) / 255;
-        return lum < 0.5;
+        var r = +m[0], g = +m[1], b = +m[2];
+        var lum = (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255;
+        var max = Math.max(r, g, b), sat = max ? (max - Math.min(r, g, b)) / max : 0;
+        // fundo colorido de brilho médio (laranja, verde, vermelho…): nem claro nem escuro
+        if (sat > 0.45 && lum > 0.22 && lum < 0.72) return 'cor';
+        return lum < 0.5 ? 'escuro' : 'claro';
       }
     }
-    return false;
+    return 'claro';
   }
 
   // No próprio site da Kyvo o selo leva ao topo, sem abrir outra aba
@@ -90,7 +96,9 @@
     var a = root.querySelector('a');
     var tema = this.getAttribute('data-tema');
     var aplicarTema = function (el) {
-      a.classList.toggle('escuro', tema ? tema === 'escuro' : fundoEscuro(el));
+      var t = tema || temaDoFundo(el);
+      a.classList.toggle('escuro', t === 'escuro');
+      a.classList.toggle('cor', t === 'cor');
     };
     aplicarTema(this);
     // o CSS do site pode terminar de carregar depois do script
